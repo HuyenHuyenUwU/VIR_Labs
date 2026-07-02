@@ -56,3 +56,17 @@ InferenceOutput InferenceEngine::query(const cv::Mat& queryImage, const vector<f
     output.executionTimeMs = elapsed.count(); // Lưu lại thời gian phản hồi (ms)
     return output;
 }
+
+// queryWithAP: thực hiện search rồi tính AP@K cho query này
+InferenceOutput InferenceEngine::queryWithAP(const string& queryPath,
+                                              const vector<float>& weights,
+                                              int K) {
+    cv::Mat img = cv::imread(queryPath);
+    InferenceOutput out = query(img, weights, K);
+
+    if (!out.results.empty()) {
+        // Tính AP dùng blob DB làm DB tham chiếu nhãn
+        out.apScore = MAPEvaluator::computeAP(queryPath, out.results, m_blobDB, K);
+    }
+    return out;
+}

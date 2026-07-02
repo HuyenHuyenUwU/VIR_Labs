@@ -100,6 +100,7 @@ void CBIRGui::render() {
 
     drawPanel();
     drawResultArea();
+    drawMAPPanel();
     drawStatusBar();
 }
 
@@ -295,15 +296,17 @@ void CBIRGui::drawQueryPreview() {
         { px, py + ph + 18 }, cv::FONT_HERSHEY_SIMPLEX,
         0.45, ACCENT, 1, cv::LINE_AA);
 
+    // Thời gian
     if (m_queryTimeMs > 0.0)
         cv::putText(m_canvas, "Time: " + fmtTime(m_queryTimeMs),
             { px, py + ph + 34 }, cv::FONT_HERSHEY_SIMPLEX,
             0.42, TEXT_PRIMARY, 1, cv::LINE_AA);
 
+    // Số kết quả
     if (!m_results.empty())
         cv::putText(m_canvas,
             "Results: " + to_string(m_results.size()),
-            { px, py + ph + 34 }, cv::FONT_HERSHEY_SIMPLEX,
+            { px, py + ph + 52 }, cv::FONT_HERSHEY_SIMPLEX,
             0.34, TEXT_DIM, 1, cv::LINE_AA);
 }
 
@@ -419,13 +422,19 @@ void CBIRGui::drawStatusBar() {
 
     string status;
     if (m_queryPath.empty())
-        status = "Ready — Click 'Browse File...' to select a query image.";
+        status = "Ready -- Click 'Browse File...' to select a query image.";
     else if (m_results.empty())
-        status = "Image loaded — Press SEARCH or Enter to find similar images.";
-    else
+        status = "Image loaded -- Press SEARCH or Enter to find similar images.";
+    else {
         status = "Top-" + std::to_string(m_results.size())
-        + " results   |   Query time: " + fmtTime(m_queryTimeMs)
-        + "   |   Scroll wheel to browse   |   ESC to quit";
+            + " results   |   Query time: " + fmtTime(m_queryTimeMs);
+        if (m_lastAP >= 0.0)
+            status += "   |   AP@" + to_string(m_K) + ": " + fmtFloat((float)m_lastAP, 3);
+        if (m_mapScore >= 0.0)
+            status += "   |   MAP@" + to_string(m_K) + ": " + fmtFloat((float)m_mapScore, 3)
+                    + " (" + to_string(m_mapCount) + " queries)";
+        status += "   |   Scroll to browse   |   ESC to quit";
+    }
 
     cv::putText(m_canvas, status,
         { PANEL_W + 8, sy + 17 }, cv::FONT_HERSHEY_SIMPLEX,
@@ -544,6 +553,13 @@ void CBIRGui::handleMouse(int event, int x, int y, int flags) {
             m_K = min(50, m_K + 1);
             needRedraw = true; goto redraw;
         }
+        // Reset MAP
+        if (hit(m_resetMapRect, x, y)) {
+            m_lastAP   = -1.0;
+            m_mapScore = -1.0;
+            m_mapCount = 0;
+            needRedraw = true; goto redraw;
+        }
     }
 
     // Mouse up
@@ -579,9 +595,21 @@ void CBIRGui::doSearch() {
     vector<float> wv(m_weights.begin(), m_weights.end());
     InferenceOutput out = m_searchCb(m_queryPath, wv, m_K);
 
-    m_results = out.results;
-    m_queryTimeMs = out.executionTimeMs;
-    m_scrollRow = 0;
+    m_results      = out.results;
+    m_queryTimeMs  = out.executionTimeMs;
+    m_scrollRow    = 0;
+
+    // Cập nhật AP và MAP tích lũy
+    if (out.apScore >= 0.0) {
+        m_lastAP = out.apScore;
+        // MAP = trung bình trượt (cộng dồn)
+        if (m_mapCount == 0) {
+            m_mapScore = m_lastAP;
+        } else {
+            m_mapScore = (m_mapScore * m_mapCount + m_lastAP) / (m_mapCount + 1);
+        }
+        m_mapCount++;
+    }
 
     render();
     cv::imshow(m_windowTitle, m_canvas);
@@ -596,6 +624,113 @@ void CBIRGui::normalizeWeights() {
         return;
     }
     for (float& w : m_weights) w /= total;
+}
+
+// ============================================================================
+//  MAP Panel — góc trên phải, cạnh Query Preview
+// ============================================================================
+void CBIRGui::drawMAPPanel() {
+    // Vị trí: bên phải query preview (px=PANEL_W+12, pw=190)
+    // Đặt panel bắt đầu từ x = PANEL_W + 12 + 190 + 16
+    int px = PANEL_W + 220;
+    int py = 10;
+    int pw = WIN_W - px - 12;   // co giãn đến cạnh phải
+    int ph = 230;               // cùng chiều cao vùng preview
+
+    // Nền panel
+    cv::rectangle(m_canvas, { px, py, pw, ph }, { 32, 32, 42 }, cv::FILLED);
+    cv::rectangle(m_canvas, { px, py, pw, ph }, BORDER, 1);
+
+    // Thanh màu nhấn trái
+    cv::rectangle(m_canvas, { px, py, 3, ph }, ACCENT, cv::FILLED);
+
+    int y = py + 14;
+
+    // Tiêu đề
+    cv::putText(m_canvas, "Evaluation Metrics",
+        { px + 10, y }, cv::FONT_HERSHEY_SIMPLEX,
+        0.50, ACCENT, 1, cv::LINE_AA);
+    y += 6;
+    cv::line(m_canvas, { px + 10, y }, { px + pw - 10, y }, BORDER, 1);
+    y += 16;
+
+    // ── AP@K ──────────────────────────────────────────────────────────────
+    cv::putText(m_canvas, "AP@K  (last query)",
+        { px + 10, y }, cv::FONT_HERSHEY_SIMPLEX,
+        0.40, TEXT_DIM, 1, cv::LINE_AA);
+    y += 18;
+
+    if (m_lastAP >= 0.0) {
+        // Số AP
+        string apStr = fmtFloat((float)m_lastAP, 4);
+        cv::putText(m_canvas, apStr,
+            { px + 10, y }, cv::FONT_HERSHEY_SIMPLEX,
+            0.70, scoreColor((float)m_lastAP), 2, cv::LINE_AA);
+        y += 8;
+
+        // Progress bar AP
+        int barW = pw - 20;
+        drawProgressBar(px + 10, y, barW, 10,
+            (float)m_lastAP, scoreColor((float)m_lastAP));
+        y += 20;
+    } else {
+        cv::putText(m_canvas, "N/A",
+            { px + 10, y }, cv::FONT_HERSHEY_SIMPLEX,
+            0.60, TEXT_DIM, 1, cv::LINE_AA);
+        y += 28;
+    }
+
+    y += 8;
+    cv::line(m_canvas, { px + 10, y }, { px + pw - 10, y }, BORDER, 1);
+    y += 14;
+
+    // ── MAP@K ─────────────────────────────────────────────────────────────
+    cv::putText(m_canvas, "MAP@K  (session avg)",
+        { px + 10, y }, cv::FONT_HERSHEY_SIMPLEX,
+        0.40, TEXT_DIM, 1, cv::LINE_AA);
+    y += 18;
+
+    if (m_mapScore >= 0.0) {
+        string mapStr = fmtFloat((float)m_mapScore, 4);
+        cv::putText(m_canvas, mapStr,
+            { px + 10, y }, cv::FONT_HERSHEY_SIMPLEX,
+            0.70, scoreColor((float)m_mapScore), 2, cv::LINE_AA);
+        y += 8;
+
+        int barW = pw - 20;
+        drawProgressBar(px + 10, y, barW, 10,
+            (float)m_mapScore, scoreColor((float)m_mapScore));
+        y += 20;
+
+        // Số lần query
+        string cntStr = "(" + to_string(m_mapCount) + " quer" +
+                         (m_mapCount == 1 ? "y" : "ies") + ")";
+        cv::putText(m_canvas, cntStr,
+            { px + 10, y }, cv::FONT_HERSHEY_SIMPLEX,
+            0.38, TEXT_DIM, 1, cv::LINE_AA);
+        y += 18;
+    } else {
+        cv::putText(m_canvas, "N/A",
+            { px + 10, y }, cv::FONT_HERSHEY_SIMPLEX,
+            0.60, TEXT_DIM, 1, cv::LINE_AA);
+        y += 28;
+    }
+
+    y += 6;
+    cv::line(m_canvas, { px + 10, y }, { px + pw - 10, y }, BORDER, 1);
+    y += 14;
+
+    // Ghi chú K hiện tại
+    cv::putText(m_canvas, "K = " + to_string(m_K),
+        { px + 10, y }, cv::FONT_HERSHEY_SIMPLEX,
+        0.38, TEXT_DIM, 1, cv::LINE_AA);
+    // Reset MAP
+    int btnX = px + pw - 76, btnY = y - 14;
+    cv::Rect resetMapBtn = { btnX, btnY, 66, 20 };
+    drawButton(resetMapBtn, "Reset MAP");
+    // Lưu vị trí nút để xử lý click
+    // (xử lý trong handleMouse)
+    m_resetMapRect = resetMapBtn;
 }
 
 // File dialog 

@@ -10,6 +10,7 @@
 #include <vector>
 #include <functional>
 #include <array>
+#include <deque>
 using namespace std;
 
 // Callback: được gọi khi người dùng nhấn "Search" 
@@ -76,6 +77,11 @@ private:
     int                      m_scrollRow = 0;
     int                      m_hoveredThumb = -1;
 
+    // AP / MAP
+    double                   m_lastAP   = -1.0;  // AP của lần search gần nhất
+    double                   m_mapScore = -1.0;  // MAP tích lũy trong session
+    int                      m_mapCount = 0;     // Số lần query đã thực hiện
+
     // Slider drag state
     int   m_activeSlider = -1;
     bool  m_dragging = false;
@@ -86,6 +92,7 @@ private:
     cv::Rect m_resetRect;
     cv::Rect m_kMinusRect;
     cv::Rect m_kPlusRect;
+    cv::Rect m_resetMapRect;   // Nút Reset MAP trong MAP panel
 
     struct SliderArea {
         cv::Rect  track;
@@ -103,6 +110,7 @@ private:
     void drawThumb(const cv::Mat& img, int x, int y, float score,
         int rank, bool hovered, const string& path);
     void drawStatusBar();
+    void drawMAPPanel();          // Vẽ panel AP/MAP bên phải
 
     // Widget helpers
     void drawButton(const cv::Rect& r, const string& label,

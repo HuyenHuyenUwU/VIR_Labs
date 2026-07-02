@@ -9,6 +9,7 @@
 #include "../features/SIFT.h"
 #include "../features/ORB.h"
 #include "../features/Texture.h"
+#include "../evaluation/MAP.h"
 #include <chrono>
 using namespace std;
 
@@ -16,6 +17,7 @@ using namespace std;
 struct InferenceOutput {
     vector<SearchResult> results;      // Danh sách Top K ảnh kèm điểm số
     double executionTimeMs;            // Thời gian tìm kiếm thực tế (ms)
+    double apScore = -1.0;             // AP@K của ảnh query này (-1 = chưa tính)
 };
 
 class InferenceEngine {
@@ -51,4 +53,17 @@ public:
      * @param K Số lượng kết quả trả về
      */
     InferenceOutput query(const cv::Mat& queryImage, const vector<float>& weights, int K);
+
+    /**
+     * @brief Như query() nhưng nhận thêm đường dẫn query để tính AP@K ngay sau khi tìm kiếm.
+     * @param queryPath  Đường dẫn ảnh query (dùng trích xuất label cho AP)
+     */
+    InferenceOutput queryWithAP(const string& queryPath,
+                                const vector<float>& weights,
+                                int K);
+
+    /**
+     * @brief Trả về tham chiếu đến Blob DB (dùng làm DB tham chiếu khi tính MAP nhiều query).
+     */
+    const FeatureDatabase& getRefDB() const { return m_blobDB; }
 };

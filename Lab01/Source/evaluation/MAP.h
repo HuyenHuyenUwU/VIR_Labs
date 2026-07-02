@@ -4,6 +4,7 @@
 #include "../core/FeatureDatabase.h"
 #include <string>
 #include <vector>
+#include <functional>
 using namespace std;
 
 /**
@@ -15,6 +16,10 @@ using namespace std;
 * 3. Tính toán MAP@K bằng cách lấy trung bình các giá trị AP
 * 4. Trả về giá trị MAP@K
 */
+
+// Callback type: nhận queryPath, trả về vector<SearchResult>
+using SearchFn = function<vector<SearchResult>(const string&)>;
+
 class MAPEvaluator {
 public:
     /**
@@ -23,7 +28,22 @@ public:
     static string getLabel(const string& path);
 
     /**
-     * @brief Tính toán chỉ số độ chính xác trung bình AP (Average Precision) cho một ảnh mục tiêu tại ngưỡng K[cite: 20, 68].
+     * @brief Tính toán chỉ số độ chính xác trung bình AP (Average Precision) cho một ảnh mục tiêu tại ngưỡng K.
      */
     static double computeAP(const string& queryPath, const vector<SearchResult>& results, const FeatureDatabase& db, int K);
+
+    /**
+     * @brief Tính toán chỉ số MAP@K (Mean Average Precision) trên tập nhiều ảnh query.
+     * @param queryPaths   Danh sách đường dẫn các ảnh dùng làm query
+     * @param searchFn     Hàm thực hiện tìm kiếm: nhận đường dẫn, trả về Top-K results
+     * @param db           FeatureDatabase tham chiếu (để đếm totalRelevant)
+     * @param K            Ngưỡng K
+     * @param outAPs       (tuỳ chọn) Nếu không nullptr, sẽ được điền danh sách AP từng query
+     * @return MAP@K
+     */
+    static double computeMAP(const vector<string>& queryPaths,
+                              const SearchFn& searchFn,
+                              const FeatureDatabase& db,
+                              int K,
+                              vector<double>* outAPs = nullptr);
 };

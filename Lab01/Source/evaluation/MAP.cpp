@@ -5,17 +5,42 @@ using namespace std;
 
 string MAPEvaluator::getLabel(const string& path) {
     string clean = path;
-	// xóa các ký tự không hợp lệ và chuẩn hóa đường dẫn
-    // VD: đường dẫn chuẩn có dạng:
-	// .../class_label/image_name.jpg
-	// ta lấy nhãn phân lớp là 'class_label'
     replace(clean.begin(), clean.end(), '\\', '/');
+
+    // 1. Lấy tên file (vd: "01_1.jpg" từ "Dataset/train/01_1.jpg")
     size_t last_slash = clean.find_last_of('/');
-    if (last_slash == string::npos) return "unknown";
-    size_t second_slash = clean.find_last_of('/', last_slash- 1);
-    if (second_slash == string::npos) return "unknown";
-    return clean.substr(second_slash + 1, last_slash - second_slash - 1);
+    string filename = (last_slash == string::npos) ? clean : clean.substr(last_slash + 1);
+
+    // 2. Tách chuỗi trước dấu '_' để làm nhãn phân lớp (vd: "01")
+    size_t underscore = filename.find('_');
+    if (underscore != string::npos) {
+        return filename.substr(0, underscore);
+    }
+
+    // Dự phòng: nếu không có dấu '_', lấy thư mục cha theo code cũ
+    if (last_slash != string::npos) {
+        size_t second_slash = clean.find_last_of('/', last_slash - 1);
+        if (second_slash != string::npos) {
+            return clean.substr(second_slash + 1, last_slash - second_slash - 1);
+        }
+    }
+
+    return "unknown";
 }
+
+//string MAPEvaluator::getLabel(const string& path) {
+//    string clean = path;
+//	// xóa các ký tự không hợp lệ và chuẩn hóa đường dẫn
+//    // VD: đường dẫn chuẩn có dạng:
+//	// .../class_label/image_name.jpg
+//	// ta lấy nhãn phân lớp là 'class_label'
+//    replace(clean.begin(), clean.end(), '\\', '/');
+//    size_t last_slash = clean.find_last_of('/');
+//    if (last_slash == string::npos) return "unknown";
+//    size_t second_slash = clean.find_last_of('/', last_slash- 1);
+//    if (second_slash == string::npos) return "unknown";
+//    return clean.substr(second_slash + 1, last_slash - second_slash - 1);
+//}
 
 double MAPEvaluator::computeAP(const string& queryPath, const vector<SearchResult>& results, const FeatureDatabase& db, int K) {
     // lấy label
@@ -43,4 +68,32 @@ double MAPEvaluator::computeAP(const string& queryPath, const vector<SearchResul
     }
 	// trả về giá trị AP
     return sumPrecision / min(totalRelevantInDb, K);
+}
+
+double MAPEvaluator::computeMAP(const vector<string>& queryPaths,
+                                 const SearchFn& searchFn,
+                                 const FeatureDatabase& db,
+                                 int K,
+                                 vector<double>* outAPs) {
+    if (queryPaths.empty()) return 0.0;
+
+    if (outAPs) {
+        outAPs->clear();
+        outAPs->reserve(queryPaths.size());
+    }
+
+    double sumAP = 0.0;
+    for (const auto& qPath : queryPaths) {
+        // Thực hiện tìm kiếm cho ảnh query này
+        vector<SearchResult> results = searchFn(qPath);
+
+        // Tính AP cho ảnh query này
+        double ap = computeAP(qPath, results, db, K);
+        sumAP += ap;
+
+        if (outAPs) outAPs->push_back(ap);
+    }
+
+    // MAP = trung bình cộng các AP
+    return sumAP / static_cast<double>(queryPaths.size());
 }

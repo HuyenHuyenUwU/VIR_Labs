@@ -1,0 +1,796 @@
+%YAML:1.0
+---
+DatabaseSize: 99
+Entries:
+   -
+      path: "Dataset/train\\01_1.jpg"
+      vector: !!opencv-matrix
+         rows: 16
+         cols: 1
+         dt: f
+         data: [ 7., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+             0., 0. ]
+   -
+      path: "Dataset/train\\01_2.jpg"
+      vector: !!opencv-matrix
+         rows: 16
+         cols: 1
+         dt: f
+         data: [ 6., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+             0., 0. ]
+   -
+      path: "Dataset/train\\01_3.jpg"
+      vector: !!opencv-matrix
+         rows: 16
+         cols: 1
+         dt: f
+         data: [ 4., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+             0., 0. ]
+   -
+      path: "Dataset/train\\02_1.jpg"
+      vector: !!opencv-matrix
+         rows: 16
+         cols: 1
+         dt: f
+         data: [ 10., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+             0., 0. ]
+   -
+      path: "Dataset/train\\02_2.jpg"
+      vector: !!opencv-matrix
+         rows: 16
+         cols: 1
+         dt: f
+         data: [ 13., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+             0., 0. ]
+   -
+      path: "Dataset/train\\02_3.jpg"
+      vector: !!opencv-matrix
+         rows: 16
+         cols: 1
+         dt: f
+         data: [ 10., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+             0., 0. ]
+   -
+      path: "Dataset/train\\03_1.jpg"
+      vector: !!opencv-matrix
+         rows: 16
+         cols: 1
+         dt: f
+         data: [ 5., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+             0., 0. ]
+   -
+      path: "Dataset/train\\03_2.jpg"
+      vector: !!opencv-matrix
+         rows: 16
+         cols: 1
+         dt: f
+         data: [ 7., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+             0., 0. ]
+   -
+      path: "Dataset/train\\03_3.jpg"
+      vector: !!opencv-matrix
+         rows: 16
+         cols: 1
+         dt: f
+         data: [ 3., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+             0., 0. ]
+   -
+      path: "Dataset/train\\04_1.jpg"
+      vector: !!opencv-matrix
+         rows: 16
+         cols: 1
+         dt: f
+         data: [ 6., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+             0., 0. ]
+   -
+      path: "Dataset/train\\04_2.jpg"
+      vector: !!opencv-matrix
+         rows: 16
+         cols: 1
+         dt: f
+         data: [ 4., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+             0., 0. ]
+   -
+      path: "Dataset/train\\04_3.jpg"
+      vector: !!opencv-matrix
+         rows: 16
+         cols: 1
+         dt: f
+         data: [ 5., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+             0., 0. ]
+   -
+      path: "Dataset/train\\05_1.jpg"
+      vector: !!opencv-matrix
+         rows: 16
+         cols: 1
+         dt: f
+         data: [ 6., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+             0., 0. ]
+   -
+      path: "Dataset/train\\05_2.jpg"
+      vector: !!opencv-matrix
+         rows: 16
+         cols: 1
+         dt: f
+         data: [ 5., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+             0., 0. ]
+   -
+      path: "Dataset/train\\05_3.jpg"
+      vector: !!opencv-matrix
+         rows: 16
+         cols: 1
+         dt: f
+         data: [ 6., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+             0., 0. ]
+   -
+      path: "Dataset/train\\06_1.jpg"
+      vector: !!opencv-matrix
+         rows: 16
+         cols: 1
+         dt: f
+         data: [ 6., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+             0., 0. ]
+   -
+      path: "Dataset/train\\06_2.jpg"
+      vector: !!opencv-matrix
+         rows: 16
+         cols: 1
+         dt: f
+         data: [ 4., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+             0., 0. ]
+   -
+      path: "Dataset/train\\06_3.jpg"
+      vector: !!opencv-matrix
+         rows: 16
+         cols: 1
+         dt: f
+         data: [ 2., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+             0., 0. ]
+   -
+      path: "Dataset/train\\07_1.jpg"
+      vector: !!opencv-matrix
+         rows: 16
+         cols: 1
+         dt: f
+         data: [ 18., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+             0., 0. ]
+   -
+      path: "Dataset/train\\07_2.jpg"
+      vector: !!opencv-matrix
+         rows: 16
+         cols: 1
+         dt: f
+         data: [ 9., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+             0., 0. ]
+   -
+      path: "Dataset/train\\07_3.jpg"
+      vector: !!opencv-matrix
+         rows: 16
+         cols: 1
+         dt: f
+         data: [ 19., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+             0., 0. ]
+   -
+      path: "Dataset/train\\08_1.jpg"
+      vector: !!opencv-matrix
+         rows: 16
+         cols: 1
+         dt: f
+         data: [ 5., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+             0., 0. ]
+   -
+      path: "Dataset/train\\08_2.jpg"
+      vector: !!opencv-matrix
+         rows: 16
+         cols: 1
+         dt: f
+         data: [ 8., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+             0., 0. ]
+   -
+      path: "Dataset/train\\08_3.jpg"
+      vector: !!opencv-matrix
+         rows: 16
+         cols: 1
+         dt: f
+         data: [ 9., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+             0., 0. ]
+   -
+      path: "Dataset/train\\09_1.jpg"
+      vector: !!opencv-matrix
+         rows: 16
+         cols: 1
+         dt: f
+         data: [ 4., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+             0., 0. ]
+   -
+      path: "Dataset/train\\09_2.jpg"
+      vector: !!opencv-matrix
+         rows: 16
+         cols: 1
+         dt: f
+         data: [ 7., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+             0., 0. ]
+   -
+      path: "Dataset/train\\09_3.jpg"
+      vector: !!opencv-matrix
+         rows: 16
+         cols: 1
+         dt: f
+         data: [ 6., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+             0., 0. ]
+   -
+      path: "Dataset/train\\10_1.jpg"
+      vector: !!opencv-matrix
+         rows: 16
+         cols: 1
+         dt: f
+         data: [ 10., 1., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+             0., 0. ]
+   -
+      path: "Dataset/train\\10_2.jpg"
+      vector: !!opencv-matrix
+         rows: 16
+         cols: 1
+         dt: f
+         data: [ 6., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+             0., 0. ]
+   -
+      path: "Dataset/train\\10_3.jpg"
+      vector: !!opencv-matrix
+         rows: 16
+         cols: 1
+         dt: f
+         data: [ 3., 1., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+             0., 0. ]
+   -
+      path: "Dataset/train\\11_1.jpg"
+      vector: !!opencv-matrix
+         rows: 16
+         cols: 1
+         dt: f
+         data: [ 8., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+             0., 0. ]
+   -
+      path: "Dataset/train\\11_2.jpg"
+      vector: !!opencv-matrix
+         rows: 16
+         cols: 1
+         dt: f
+         data: [ 5., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+             0., 0. ]
+   -
+      path: "Dataset/train\\11_3.jpg"
+      vector: !!opencv-matrix
+         rows: 16
+         cols: 1
+         dt: f
+         data: [ 6., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+             0., 0. ]
+   -
+      path: "Dataset/train\\12_1.jpg"
+      vector: !!opencv-matrix
+         rows: 16
+         cols: 1
+         dt: f
+         data: [ 12., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+             0., 0. ]
+   -
+      path: "Dataset/train\\12_2.jpg"
+      vector: !!opencv-matrix
+         rows: 16
+         cols: 1
+         dt: f
+         data: [ 7., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+             0., 0. ]
+   -
+      path: "Dataset/train\\12_3.jpg"
+      vector: !!opencv-matrix
+         rows: 16
+         cols: 1
+         dt: f
+         data: [ 13., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+             0., 0. ]
+   -
+      path: "Dataset/train\\13_1.jpg"
+      vector: !!opencv-matrix
+         rows: 16
+         cols: 1
+         dt: f
+         data: [ 12., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+             0., 0. ]
+   -
+      path: "Dataset/train\\13_2.jpg"
+      vector: !!opencv-matrix
+         rows: 16
+         cols: 1
+         dt: f
+         data: [ 9., 1., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+             0., 0. ]
+   -
+      path: "Dataset/train\\13_3.jpg"
+      vector: !!opencv-matrix
+         rows: 16
+         cols: 1
+         dt: f
+         data: [ 13., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+             0., 0. ]
+   -
+      path: "Dataset/train\\14_1.jpg"
+      vector: !!opencv-matrix
+         rows: 16
+         cols: 1
+         dt: f
+         data: [ 11., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+             0., 0. ]
+   -
+      path: "Dataset/train\\14_2.jpg"
+      vector: !!opencv-matrix
+         rows: 16
+         cols: 1
+         dt: f
+         data: [ 7., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+             0., 0. ]
+   -
+      path: "Dataset/train\\14_3.jpg"
+      vector: !!opencv-matrix
+         rows: 16
+         cols: 1
+         dt: f
+         data: [ 8., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+             0., 0. ]
+   -
+      path: "Dataset/train\\15_1.jpg"
+      vector: !!opencv-matrix
+         rows: 16
+         cols: 1
+         dt: f
+         data: [ 8., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+             0., 0. ]
+   -
+      path: "Dataset/train\\15_2.jpg"
+      vector: !!opencv-matrix
+         rows: 16
+         cols: 1
+         dt: f
+         data: [ 11., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+             0., 0. ]
+   -
+      path: "Dataset/train\\15_3.jpg"
+      vector: !!opencv-matrix
+         rows: 16
+         cols: 1
+         dt: f
+         data: [ 14., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+             0., 0. ]
+   -
+      path: "Dataset/train\\16_1.jpg"
+      vector: !!opencv-matrix
+         rows: 16
+         cols: 1
+         dt: f
+         data: [ 16., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+             0., 0. ]
+   -
+      path: "Dataset/train\\16_2.jpg"
+      vector: !!opencv-matrix
+         rows: 16
+         cols: 1
+         dt: f
+         data: [ 21., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+             0., 0. ]
+   -
+      path: "Dataset/train\\16_3.jpg"
+      vector: !!opencv-matrix
+         rows: 16
+         cols: 1
+         dt: f
+         data: [ 27., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+             0., 0. ]
+   -
+      path: "Dataset/train\\17_1.jpg"
+      vector: !!opencv-matrix
+         rows: 16
+         cols: 1
+         dt: f
+         data: [ 16., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+             0., 0. ]
+   -
+      path: "Dataset/train\\17_2.jpg"
+      vector: !!opencv-matrix
+         rows: 16
+         cols: 1
+         dt: f
+         data: [ 12., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+             0., 0. ]
+   -
+      path: "Dataset/train\\17_3.jpg"
+      vector: !!opencv-matrix
+         rows: 16
+         cols: 1
+         dt: f
+         data: [ 13., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+             0., 0. ]
+   -
+      path: "Dataset/train\\18_1.jpg"
+      vector: !!opencv-matrix
+         rows: 16
+         cols: 1
+         dt: f
+         data: [ 12., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+             0., 0. ]
+   -
+      path: "Dataset/train\\18_2.jpg"
+      vector: !!opencv-matrix
+         rows: 16
+         cols: 1
+         dt: f
+         data: [ 7., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+             0., 0. ]
+   -
+      path: "Dataset/train\\18_3.jpg"
+      vector: !!opencv-matrix
+         rows: 16
+         cols: 1
+         dt: f
+         data: [ 19., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+             0., 0. ]
+   -
+      path: "Dataset/train\\19_1.jpg"
+      vector: !!opencv-matrix
+         rows: 16
+         cols: 1
+         dt: f
+         data: [ 13., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+             0., 0. ]
+   -
+      path: "Dataset/train\\19_2.jpg"
+      vector: !!opencv-matrix
+         rows: 16
+         cols: 1
+         dt: f
+         data: [ 5., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+             0., 0. ]
+   -
+      path: "Dataset/train\\19_3.jpg"
+      vector: !!opencv-matrix
+         rows: 16
+         cols: 1
+         dt: f
+         data: [ 6., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+             0., 0. ]
+   -
+      path: "Dataset/train\\20_1.jpg"
+      vector: !!opencv-matrix
+         rows: 16
+         cols: 1
+         dt: f
+         data: [ 16., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+             0., 0. ]
+   -
+      path: "Dataset/train\\20_2.jpg"
+      vector: !!opencv-matrix
+         rows: 16
+         cols: 1
+         dt: f
+         data: [ 10., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+             0., 0. ]
+   -
+      path: "Dataset/train\\20_3.jpg"
+      vector: !!opencv-matrix
+         rows: 16
+         cols: 1
+         dt: f
+         data: [ 11., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+             0., 0. ]
+   -
+      path: "Dataset/train\\21_1.jpg"
+      vector: !!opencv-matrix
+         rows: 16
+         cols: 1
+         dt: f
+         data: [ 42., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+             0., 0. ]
+   -
+      path: "Dataset/train\\21_2.jpg"
+      vector: !!opencv-matrix
+         rows: 16
+         cols: 1
+         dt: f
+         data: [ 18., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+             0., 0. ]
+   -
+      path: "Dataset/train\\21_3.jpg"
+      vector: !!opencv-matrix
+         rows: 16
+         cols: 1
+         dt: f
+         data: [ 26., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+             0., 0. ]
+   -
+      path: "Dataset/train\\22_1.jpg"
+      vector: !!opencv-matrix
+         rows: 16
+         cols: 1
+         dt: f
+         data: [ 10., 1., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+             0., 0. ]
+   -
+      path: "Dataset/train\\22_2.jpg"
+      vector: !!opencv-matrix
+         rows: 16
+         cols: 1
+         dt: f
+         data: [ 2., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+             0., 0. ]
+   -
+      path: "Dataset/train\\22_3.jpg"
+      vector: !!opencv-matrix
+         rows: 16
+         cols: 1
+         dt: f
+         data: [ 6., 1., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+             0., 0. ]
+   -
+      path: "Dataset/train\\23_1.jpg"
+      vector: !!opencv-matrix
+         rows: 16
+         cols: 1
+         dt: f
+         data: [ 16., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+             0., 0. ]
+   -
+      path: "Dataset/train\\23_2.jpg"
+      vector: !!opencv-matrix
+         rows: 16
+         cols: 1
+         dt: f
+         data: [ 14., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+             0., 0. ]
+   -
+      path: "Dataset/train\\23_3.jpg"
+      vector: !!opencv-matrix
+         rows: 16
+         cols: 1
+         dt: f
+         data: [ 9., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+             0., 0. ]
+   -
+      path: "Dataset/train\\24_1.jpg"
+      vector: !!opencv-matrix
+         rows: 16
+         cols: 1
+         dt: f
+         data: [ 4., 1., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+             0., 0. ]
+   -
+      path: "Dataset/train\\24_2.jpg"
+      vector: !!opencv-matrix
+         rows: 16
+         cols: 1
+         dt: f
+         data: [ 2., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+             0., 0. ]
+   -
+      path: "Dataset/train\\24_3.jpg"
+      vector: !!opencv-matrix
+         rows: 16
+         cols: 1
+         dt: f
+         data: [ 2., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+             0., 0. ]
+   -
+      path: "Dataset/train\\25_1.jpg"
+      vector: !!opencv-matrix
+         rows: 16
+         cols: 1
+         dt: f
+         data: [ 9., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+             0., 0. ]
+   -
+      path: "Dataset/train\\25_2.jpg"
+      vector: !!opencv-matrix
+         rows: 16
+         cols: 1
+         dt: f
+         data: [ 8., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+             0., 0. ]
+   -
+      path: "Dataset/train\\25_3.jpg"
+      vector: !!opencv-matrix
+         rows: 16
+         cols: 1
+         dt: f
+         data: [ 9., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+             0., 0. ]
+   -
+      path: "Dataset/train\\26_1.jpg"
+      vector: !!opencv-matrix
+         rows: 16
+         cols: 1
+         dt: f
+         data: [ 17., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+             0., 0. ]
+   -
+      path: "Dataset/train\\26_2.jpg"
+      vector: !!opencv-matrix
+         rows: 16
+         cols: 1
+         dt: f
+         data: [ 14., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+             0., 0. ]
+   -
+      path: "Dataset/train\\26_3.jpg"
+      vector: !!opencv-matrix
+         rows: 16
+         cols: 1
+         dt: f
+         data: [ 18., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+             0., 0. ]
+   -
+      path: "Dataset/train\\27_1.jpg"
+      vector: !!opencv-matrix
+         rows: 16
+         cols: 1
+         dt: f
+         data: [ 19., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+             0., 0. ]
+   -
+      path: "Dataset/train\\27_2.jpg"
+      vector: !!opencv-matrix
+         rows: 16
+         cols: 1
+         dt: f
+         data: [ 20., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+             0., 0. ]
+   -
+      path: "Dataset/train\\27_3.jpg"
+      vector: !!opencv-matrix
+         rows: 16
+         cols: 1
+         dt: f
+         data: [ 11., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+             0., 0. ]
+   -
+      path: "Dataset/train\\28_1.jpg"
+      vector: !!opencv-matrix
+         rows: 16
+         cols: 1
+         dt: f
+         data: [ 8., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+             0., 0. ]
+   -
+      path: "Dataset/train\\28_2.jpg"
+      vector: !!opencv-matrix
+         rows: 16
+         cols: 1
+         dt: f
+         data: [ 9., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+             0., 0. ]
+   -
+      path: "Dataset/train\\28_3.jpg"
+      vector: !!opencv-matrix
+         rows: 16
+         cols: 1
+         dt: f
+         data: [ 11., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+             0., 0. ]
+   -
+      path: "Dataset/train\\29_1.jpg"
+      vector: !!opencv-matrix
+         rows: 16
+         cols: 1
+         dt: f
+         data: [ 10., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+             0., 0. ]
+   -
+      path: "Dataset/train\\29_2.jpg"
+      vector: !!opencv-matrix
+         rows: 16
+         cols: 1
+         dt: f
+         data: [ 8., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+             0., 0. ]
+   -
+      path: "Dataset/train\\29_3.jpg"
+      vector: !!opencv-matrix
+         rows: 16
+         cols: 1
+         dt: f
+         data: [ 11., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+             0., 0. ]
+   -
+      path: "Dataset/train\\30_1.jpg"
+      vector: !!opencv-matrix
+         rows: 16
+         cols: 1
+         dt: f
+         data: [ 8., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+             0., 0. ]
+   -
+      path: "Dataset/train\\30_2.jpg"
+      vector: !!opencv-matrix
+         rows: 16
+         cols: 1
+         dt: f
+         data: [ 9., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+             0., 0. ]
+   -
+      path: "Dataset/train\\30_3.jpg"
+      vector: !!opencv-matrix
+         rows: 16
+         cols: 1
+         dt: f
+         data: [ 8., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+             0., 0. ]
+   -
+      path: "Dataset/train\\31_1.jpg"
+      vector: !!opencv-matrix
+         rows: 16
+         cols: 1
+         dt: f
+         data: [ 9., 1., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+             0., 0. ]
+   -
+      path: "Dataset/train\\31_2.jpg"
+      vector: !!opencv-matrix
+         rows: 16
+         cols: 1
+         dt: f
+         data: [ 9., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+             0., 0. ]
+   -
+      path: "Dataset/train\\31_3.jpg"
+      vector: !!opencv-matrix
+         rows: 16
+         cols: 1
+         dt: f
+         data: [ 9., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+             0., 0. ]
+   -
+      path: "Dataset/train\\32_1.jpg"
+      vector: !!opencv-matrix
+         rows: 16
+         cols: 1
+         dt: f
+         data: [ 12., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+             0., 0. ]
+   -
+      path: "Dataset/train\\32_2.jpg"
+      vector: !!opencv-matrix
+         rows: 16
+         cols: 1
+         dt: f
+         data: [ 11., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+             0., 0. ]
+   -
+      path: "Dataset/train\\32_3.jpg"
+      vector: !!opencv-matrix
+         rows: 16
+         cols: 1
+         dt: f
+         data: [ 8., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+             0., 0. ]
+   -
+      path: "Dataset/train\\33_1.jpg"
+      vector: !!opencv-matrix
+         rows: 16
+         cols: 1
+         dt: f
+         data: [ 10., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+             0., 0. ]
+   -
+      path: "Dataset/train\\33_2.jpg"
+      vector: !!opencv-matrix
+         rows: 16
+         cols: 1
+         dt: f
+         data: [ 5., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+             0., 0. ]
+   -
+      path: "Dataset/train\\33_3.jpg"
+      vector: !!opencv-matrix
+         rows: 16
+         cols: 1
+         dt: f
+         data: [ 9., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+             0., 0. ]
